@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        /*  重用代码：
+        1.尽量保证HTML代码结构一致，可以通过父级选取子元素
+        2.把核心主程序实现，用函数包起来
+        3.把每组里不同的值找出来，通过传参实现
+     */
+        window.onload = function () {
+            var list = document.getElementById("list");
+            var lis = list.getElementsByTagName("li");
+            var spans = list.getElementsByTagName("span");
+            var ems = list.getElementsByTagName("em");
+            var strongs = list.getElementsByTagName("strong");
+            var num = document.getElementById("num");
+            var price = document.getElementById("price");
+            var max = document.getElementById("max");
+            //  f1(lis[0]);
+            //  f1(lis[1]);
+            //  f1(lis[2]);
+            for (var i = 0; i < lis.length; i++) {
+                f1(i);
+            }
+            function f2() {
+                var a = 0;
+                var b = 0;
+                var c = 0;
+                for (var i = 0; i < strongs.length; i++) {
+                    a += parseFloat(strongs[i].innerHTML);
+                    b += parseFloat(spans[i].innerHTML);
+                    // 当strong的值不是0时，才去比较em的大小
+                    if (strongs[i].innerHTML!=0) {
+                        if (parseFloat(ems[i].innerHTML) > c) {
+                            c =parseFloat(ems[i].innerHTML);
+                        }
+                    }
+                }
+                max.innerHTML=c;
+                num.innerHTML = a;
+                price.innerHTML = b;
+               
+
+            }
+            function f1(d) {
+                var li_inps = lis[d].getElementsByTagName("input");
+                var li_strong = lis[d].getElementsByTagName("strong")[0];
+                var li_em = lis[d].getElementsByTagName("em")[0];
+                var li_span =lis[d].getElementsByTagName("span")[0];
+                var n1 = 0;
+                li_inps[0].onclick = function () {
+                    n1--;
+                    if (n1 < 0) {
+                        n1 = 0;
+                    }
+                    li_strong.innerHTML = n1;
+                    li_span.innerHTML = n1 * (parseFloat(li_em.innerHTML)) + "元";
+                    f2();
+                }
+                li_inps[1].onclick = function () {
+                    n1++;
+                    li_strong.innerHTML = n1;
+                    li_span.innerHTML = n1 * (parseFloat(li_em.innerHTML)) + "元";
+                    f2();
+                }
+
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <ul id="list">
+        <li>
+            <input type="button" value="-">
+            <strong>0</strong>
+            <input type="button" value="+"> 单价:
+            <em>12.5元</em> 小计:
+            <span>0元</span>
+        </li>
+        <li>
+            <input type="button" value="-">
+            <strong>0</strong>
+            <input type="button" value="+"> 单价:
+            <em>8元</em> 小计:
+            <span>0元</span>
+        </li>
+        <li>
+            <input type="button" value="-">
+            <strong>0</strong>
+            <input type="button" value="+"> 单价:
+            <em>20.5元</em> 小计:
+            <span>0元</span>
+        </li>
+    </ul>
+    <p>总：<span id="num">0</span>件<br>总计：<span id="price">0</span>元<br> 其中最贵的商品单价是:
+        <span id="max">0</span>元
+    </p>
+</body>
+
+</html>

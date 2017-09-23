@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // js数据类型：数字、字符串、布尔、函数、对象(obj、[]、{}、null)、未定义
+        // typeof判断数据类型
+        // number()   parseInt()   parseFloat()  显式类型转换(强制)
+        //    Number  整体转换 把看着像数字的字符串变成数字
+        var a = "100";
+        alert(Number(a) + 100);//200
+        var a1 = "";
+        alert(Number(a1));//0
+        var a2 = [123];
+        alert(Number(a2));//123
+        var a2 = ["1,2,3,4"]
+        alert(Number(a2));//不能转换  NaN不是数字的数字类型   isNaN() 判断某些值是不是数字(不喜欢数字)   true  false
+        var a3 = true;
+        alert(Number(a3));//1
+        //   parseInt(不认识小数点)与parseFloat(认识一个小数点)    逐个转换
+        var a = "200px1234975";
+        alert(parseInt(a));//200
+        var b = "12.34元";
+        alert(parseFloat(b));//12.34
+        var b1 = "12.3.4元";
+        alert(parseFloat(b1));//12.3
+
+        // 隐式类型转换：+     - * / %     ++ --     > <      !取反     ==
+        // +
+        alert(201 + "7");//改变成字符串
+        //  - * / %
+        alert("200" - 3);//197 变成数字
+        // ++ --
+        var a = "10";
+        a++;
+        alert(a);//变成数字
+        // >  <    数字的比较与字符串的比较
+        alert("10" > 9);//true  数字的比较
+        alert("10" > "9")//false 字符串的比较  一位一位的比较
+        // ！取反  把右边的数据类型转成布尔值
+        alert(!100);//false
+        // ==
+        alert("2"==2);//true
+    </script>
+</body>
+
+</html>

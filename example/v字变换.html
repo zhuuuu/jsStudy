@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #content {
+            width: 500px;
+            height: 500px;
+            border: 1px solid gray;
+            position: relative;
+        }
+
+        #content div {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            font-size: 30px;
+            line-height: 100px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="button" value="click" id="btn">
+    <div id="content">
+        <!-- <div style="left:0px;top:0px">0</div> -->
+        <!-- <div style="left:100px;top:100px">1</div> -->
+        <!-- <div style="left:200px;top:200px">2</div> -->
+        <!-- <div style="left:300px;top:100px">3</div> -->
+        <!-- <div style="left:400px;top:0px">4</div>  -->
+    </div>
+    <script>
+        //向上
+        // i    left    top 
+        // 0     0       0
+        // 1    100     100
+        // 2    200     200
+        // 3    300     100
+        // 4    400      0
+        // left=i*100 
+        // top :i<=2  top=i*100   else top=400-i*100
+        //向右、向下、向左
+        var btn = document.getElementById("btn");
+        var content = document.getElementById("content");
+        var str = "";
+        var l = 0;
+        var t = 0;
+        var num = 0;
+        btn.onclick = function () {
+            //向上
+            if (num == 0) {
+                for (var i = 0; i < 5; i++) {
+                    l = i * 100;
+                    if (i <= 2) {
+                        t = i * 100;
+                    } else {
+                        t = 400 - i * 100;
+                    }
+                    str += '<div style="left:' + l + 'px;top:' + t + 'px">' + i + '</div>'
+                }
+            }
+            //向右
+            if (num == 1) {
+                for (var i = 0; i < 5; i++) {
+                    t = i * 100;
+                    if (i <= 2) {
+                        l = 400 - i * 100;
+                    } else {
+                        l = i * 100;
+                    }
+                    str += '<div style="left:' + l + 'px;top:' + t + 'px">' + i + '</div>'
+                }
+            }
+            //向下
+            if (num == 2) {
+                for (var i = 0; i < 5; i++) {
+                    l = i * 100;
+                    if (i <= 2) {
+                        t = 400 - i * 100;
+                    } else {
+                        t = i * 100;
+                    }
+                    str += '<div style="left:' + l + 'px;top:' + t + 'px">' + i + '</div>'
+                }
+            }
+            //向左
+            if (num == 3) {
+                for (var i = 0; i < 5; i++) {
+                    t = i * 100;
+                    if (i <= 2) {
+                        l = i * 100;
+                    } else {
+                        l = 400 - i * 100;
+                    }
+                    str += '<div style="left:' + l + 'px;top:' + t + 'px">' + i + '</div>'
+                }
+            }
+            num++;
+            if(num==4){
+                num=0;
+            }
+            content.innerHTML = str;
+            str = "";
+        }
+    </script>
+</body>
+
+</html>
