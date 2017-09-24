@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //  return:返回值
+        // 1）函数名+括号：fn1()==>return后面的值
+        // 2）所有函数默认返回值：未定义
+        // 3）return后面任何代码都不执行了 
+
+        //   当函数的参数个数无法确定的时候：用arguments 
+        alert(sum(1, 2, 3));
+        function sum() {
+            var n = 0;
+            for (var i = 0; i < arguments.length; i++) {
+                n += arguments[i];
+            }
+            return n;
+        }
+    </script>
+</body>
+
+</html>
