@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background: pink;
+            position: absolute;
+            top: 50px;
+            left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <input id="btn1" type="button" value="后">
+    <input id="btn2" type="button" value="前">
+    <div id="div1"></div>
+    <script>
+        var btn1 = document.getElementById("btn1");
+        var btn2 = document.getElementById("btn2");
+        var div = document.getElementById("div1");
+        // var timer="";
+        btn2.onclick = function () {
+            doMove(div, "left", 12, 600, function () {
+                doMove(div, "top", 20, 400);
+            });
+        }
+        // btn2.onclick = function () {
+        //     doMove(div, 12, 600);
+        // }
+        //   >  <   不能传参
+        function doMove(obj, attr, dir, target, endFn) {//1.对象 2.left/top 3.方向 4.目的地 5.回调函数
+            dir = parseInt(getStyle(obj, attr)) < target ? dir : -dir;
+            clearInterval(obj.timer);
+            obj.timer = setInterval(function () {
+                var speed = parseInt(getStyle(obj, attr)) + dir;
+                // if (speed > target && dir > 0) {//往前
+                //     speed = target;
+                // }
+                // if (speed < target && dir < 0) {//往后
+                //     speed = target;
+                // }
+                if (speed > target && dir > 0 || speed < target && dir < 0) {
+                    speed = target;
+                }
+                obj.style[attr] = speed + "px";
+                if (speed == target) {
+                    clearInterval(obj.timer);
+                    if (endFn) {
+                        endFn();
+                    }
+                }
+            }, 30);
+
+        }
+        // getStyle(obj, attr)  //两个参数：1.获取谁(对象)  2.获取谁的什么样的样式名称
+        function getStyle(obj, attr) {
+            return obj.currentStyle ? obj.currentStyle[attr] : getComputedStyle(obj)[attr];
+        }
+    </script>
+</body>
+
+</html>
