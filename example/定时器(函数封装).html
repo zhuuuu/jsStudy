@@ -32,15 +32,15 @@
                 doMove(div, "top", 20, 400);
             });
         }
-        // btn2.onclick = function () {
-        //     doMove(div, 12, 600);
+        // btn1.onclick = function () {
+        //     doMove(div, 12, 10);
         // }
-        //   >  <   不能传参
-        function doMove(obj, attr, dir, target, endFn) {//1.对象 2.left/top 3.方向 4.目的地 5.回调函数
+        // >  <   不能传参
+        function doMove(obj, attr, dir, target, endFn) {//1.对象 2.left/top 3.多少px 4.目的地 5.回调函数
             dir = parseInt(getStyle(obj, attr)) < target ? dir : -dir;
             clearInterval(obj.timer);
             obj.timer = setInterval(function () {
-                var speed = parseInt(getStyle(obj, attr)) + dir;
+                var speed = parseInt(getStyle(obj, attr)) + dir; //   attr:left/top
                 // if (speed > target && dir > 0) {//往前
                 //     speed = target;
                 // }
@@ -60,7 +60,7 @@
             }, 30);
 
         }
-        // getStyle(obj, attr)  //两个参数：1.获取谁(对象)  2.获取谁的什么样的样式名称
+        // getStyle(obj, attr)  两个参数：1.获取谁(对象)  2.获取谁的什么样的样式名称
         function getStyle(obj, attr) {
             return obj.currentStyle ? obj.currentStyle[attr] : getComputedStyle(obj)[attr];
         }
