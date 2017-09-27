@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        li {
+            width: 20px;
+            height: 30px;
+            background: pink;
+            transition: 1s;
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="ul1">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <div id="div1">2374795</div>
+    <script>
+        // DOM的节点类型：
+        // node.nodeType：查看某个节点是什么类型的
+        // 元素节点：就是标签，数字1
+        // document:数字9
+        // 文本节点：数字3      文字、换行... 都是文本节点
+        // 注释节点：数字8
+        // 属性节点: 数字2
+        // childNodes:（类数组）获取某个节点下的所有子节点
+        // parentNode:查找某个元素的父节点。
+        // nextElementSibling:找到某个元素的下个兄弟节点。
+        // previousElementSibling:找到某个元素的上个兄弟节点。
+        // nodeValue：查看节点的属性值     nodeName：查看节点的属性名
+
+        var div = document.getElementById("div1");
+        // alert(document.nodeType);
+        console.log(div.childNodes[0].nodeType);
+        console.log(div.childNodes[0].nodeValue);
+        console.log(div.attributes[0].nodeType);
+        console.log(div.attributes[0].nodeValue);
+      
+
+        var ul = document.getElementById("ul1");
+        var lis = ul.childNodes;
+        // var lis = ul.children;
+        // children:不是标准的属性，但所有浏览器都支持
+        // 找到某个元素下所有元素子节点
+        document.onclick = function () {
+            for (var i = 0; i < lis.length; i++) {
+                if (lis[i].nodeType == 1) {//元素节点
+                    lis[i].style.width = "100px";
+                }
+            }
+        }
+        console.log(lis[0].parentNode);
+        console.log(lis[0].nextElementSibling);
+
+    </script>
+</body>
+
+</html>
