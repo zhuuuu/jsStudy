@@ -36,7 +36,7 @@
         //     doMove(div, 12, 10);
         // }
         // >  <   不能传参
-        function doMove(obj, attr, dir, target, endFn) {//1.对象 2.left/top 3.多少px 4.目的地 5.回调函数
+        function doMove(obj, attr, dir, target, endFn) {//1.对象 2.left/top 3.多少px（速度） 4.目的地 5.回调函数
             dir = parseInt(getStyle(obj, attr)) < target ? dir : -dir;
             clearInterval(obj.timer);
             obj.timer = setInterval(function () {
