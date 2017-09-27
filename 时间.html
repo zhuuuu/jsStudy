@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //object
+        var body = document.body;
+        setInterval(fnTime, 1000);
+        fnTime();
+        function fnTime() {
+            var myTime = new Date();
+            //number
+            var iYear = myTime.getFullYear();//年
+            var iMonth = myTime.getMonth() + 1;//月
+            var iDate = myTime.getDate();//日
+            var iWeek = myTime.getDay();//星期
+            var iHours = myTime.getHours();//时
+            var iMin = myTime.getMinutes();//分
+            var iSec = myTime.getSeconds();//秒
+            var str = "";
+            if (iWeek == 0) { iWeek = "星期日" }
+            if (iWeek == 1) { iWeek = "星期一" }
+            if (iWeek == 2) { iWeek = "星期二" }
+            if (iWeek == 3) { iWeek = "星期三" }
+            if (iWeek == 4) { iWeek = "星期四" }
+            if (iWeek == 5) { iWeek = "星期五" }
+            if (iWeek == 6) { iWeek = "星期六" }
+            str = iYear + "年" + iMonth + "月" + iDate + "日 " + iWeek + "" + fn1(iHours) + ":" + fn1(iMin) + ":" + fn1(iSec);
+            body.innerHTML = str;
+        }
+        function fn1(n) {
+                return n < 10 ? "0" + n : "" + n;
+            }
+    </script>
+</body>
+
+</html>
