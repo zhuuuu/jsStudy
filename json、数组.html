@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //for-in遍历json  读取
+        var json = {
+            "url": ["img/1.png", "img/2.png", "img/3.png", "img/4.png"],
+            "text": ['图片一', '图片二', '图片三', '图片四']
+        }
+        for (var attr in json) {//读取json中的每一项
+            for (var i = 0; i < json[attr].length; i++) {
+                alert(json[attr][i]);
+            }
+        }
+
+        // push()向数组的末尾添加一个或多个元素，并返回新的长度
+        // unshift()向数组的开头添加一个或多个元素，并返回新的长度
+        // pop()删除并返回数组的最后一个元素
+        // shift()删除并返回数组的第一个元素
+        // splice()删除、替换、添加，返回被删除的值
+        // sort()数组排序
+        // Math.random()返回介于0~1之间的一个随机数
+        // Math.round()把一个数字四舍五入为最近的整数
+        // Math.ceil()向上取整
+        // Math.floor()向下取整
+        // concat()数组连接
+        // reverse()颠倒数组元素
+        var arr = ['aaa', 3, 6];
+        arr.length = 0;//清空数组
+        alert(arr);
+        //    arr=[];//给数组重新赋值为空
+        var arr1 = [1, 2, 6]
+        // alert(arr1.push("bjgn"));//4  长度
+        // arr1.push(45);
+        // alert(arr1);//1,2,6,45
+        // arr1.pop();
+        // alert(arr1);//1,2
+        alert(arr1.pop());//6
+        var arr2 = ['你', '我', '他'];
+        // arr2.splice(0,2);//他    从第0个开始，删除2个
+        // alert(arr2);
+        // arr2.splice(0,2,'you and me');//you and me,他   从第0个开始，替换2个
+        // alert(arr2);
+        arr2.splice(1, 0, 'you');//在1处添加
+        alert(arr2);
+
+        //数组去重
+        var arr3 = [1, 2, 3, 4, 3, 5, 3];
+        for (var i = 0; i < arr3.length; i++) {
+            for (var j = i + 1; j < arr3.length; j++) {
+                if (arr3[i] == arr3[j]) {
+                    arr3.splice(j, 1);
+                    j--;
+                }
+            }
+        }
+        alert(arr3);
+
+        var arr4 = [5, 3, 6, 4, 2, 1, 8];
+        arr4.sort();//1,2,3,4,5,6,8   里面没有参数，按unicode码顺序排列
+        alert(arr4);
+        function sortNum(a, b) {
+            return a - b;//升序，若降序，把'a-b'改成'b-a'
+        }
+        alert(arr4.sort(sortNum));//1,2,3,4,5,6,8
+
+        alert(Math.round(Math.random() * 10));//0-10之间的随机数
+        alert(Math.round(Math.random() * 5 + 5));//5-10之间的随机数
+        alert(Math.round(Math.random() * 80 + 20));//20-100之间的随机数
+
+        // x~y之间
+        // alert(Math.round(Math.random()*(y-x)+x));
+
+        // 1~x之间
+        // alert(Math.ceil(Math.random()*x));//ceil()向上取整
+
+        var arr5 = [1, 2, 3];
+        var arr6 = [7, 7, 7];
+        alert(arr5.concat(arr6));
+        var arr7 = [1, 2, 3, 4, 5, 6];
+        alert(arr7.reverse());
+        var str = "abcdef";
+        alert(str.split("").reverse().join(""));
+    </script>
+</body>
+
+</html>
