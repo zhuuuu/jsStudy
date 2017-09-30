@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // length:返回该字符串的长度
+        // charAt()利用下标可返回指定位置的字符
+        // charCodeAt()利用下标获取字符串在计算机内的编码值。string.fromCharCode()返回字符串
+        //{ indexOf()返回某个字符串值在字符串中首次出现的位置，从前往后找
+        // lastIndexOf()从后往前找，若第2个值为负数，默认当成0来处理 }
+        // substring()用于提取字符串中介于两个指定下表之间的字符
+        // toUpperCase()转换成大写    toLowerCase()转换成小写
+        //{ split()将字符串分割为字符串数组，并返回此数组   字符串~数组
+        // join()把数组转换成字符串进行连接  数组~字符串 }
+        var str = "vshdabffjeinvhrgcnvabdkjirgrab";
+        var s = "ab";
+        var i = 0;
+        for (; str.indexOf(s, i) != -1;) {//超出显示-1
+            alert(str.indexOf(s, i));
+            i = str.indexOf(s, i) + s.length;
+        }
+        alert(str.substring(8));//jeinvhrgcnvabdkjirgrab 包含8
+        alert(str.substring(6, 8));//ff 不包含8
+        // alert(str.substring(8, 6));//可以检测两个数，大的在后，小的在前
+        // alert(str.substring(-3, 2));//-3当成0处理
+        alert(str.slice(2, 0));//不交换位置
+        alert(str.slice(-5, -3));//rg    负数从后面倒着往前数
+        var str = "www.miaov.com";
+        alert(str.split("."));//www,miaov,com
+        var arr = str.split(".");
+        alert(arr.length);//3   alert(arr[1])//miaov  //变成数组
+        alert(str.split(".", 2));//www,miaov
+        alert(str.split(""));//w,w,w,m,i,a,o,v,c,o,m   //每个字符串之间都会被分割
+        alert(str.split("", 5));//w,w,w,.,m
+        var str1 = "妙味课堂";
+        alert(str1.split("味"));//妙，课堂
+        var arr1 = ["你", "我", "他"]
+        alert(arr1.join());//你，我，他   //'你'+','+'我'+'，'+'他'
+        alert(arr1.join(''));//你我他
+    </script>
+</body>
+
+</html>
