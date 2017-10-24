@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #div2 {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            border: 10px solid blue;
+            padding: 5px;
+            margin: 10px;
+            position: absolute;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="div1"></div>
+    <div id="div2"></div>
+    <script>
+        // offsetParent:最近的有定位元素的祖先节点，如果祖先节点没有定位，那么默认为body
+        // offsetLeft：外边框到有定位父级的内边框的距离  offsetTop
+        // elem.clientWidth/elem.clientHeight（获取某个元素的宽高）  不计算边框 加padding
+        // elem.offsetWidth/elem.offsetHeight（获取某个元素的宽高）  计算边框 加padding
+        // 可视区的宽高：document.documentElement.clientWidth/document.documentElement.clientHeight
+        // 让一个不确定宽高的元素居中显：1.元素的left=（可视区域宽-元素的宽）/2    2.元素的top=（可视区域高-元素的高）/2
+        var div2 = document.getElementById("div2");
+        var clientW=document.documentElement.clientWidth;
+        var clientH=document.documentElement.clientHeight;
+        var iW=div2.offsetWidth;
+        var iH=div2.offsetHeight;
+        // 元素的left=（可视区域宽-元素的宽）/2 
+        div2.style.left=(clientW-iW)/2+"px";
+        // 元素的top=（可视区域高-元素的高）/2
+        div2.style.top=(clientH-iH)/2+"px";
+
+        // 1.获取元素的行间属性 elem.getAttribute('key')  可以获取src、href等的相对地址
+        // 2.设置元素的行间属性 elem.setAttribute('key','value')
+        // 3.删除元素的行间属性 elem.removeAttribute('key')
+        var div1 = document.getElementById("div1");
+        div1.setAttribute('index', '2');
+        // alert(div1.getAttribute('id'))
+        alert(div1.getAttribute('index'));
+        alert('下面就删除了');
+        div1.removeAttribute('index');
+        alert(div1.getAttribute('index'));
+
+        var div2 = document.getElementById("div2");
+        console.log(div2.clientWidth);
+        console.log(div2.offsetWidth);
+      
+    </script>
+
+</body>
+
+</html>

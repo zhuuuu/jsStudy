@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" id="btn" value="点击">
+    <ul id="ul"></ul>
+    <script>
+    //    document.createElement('标签的名字');//创建元素 
+    //    插入元素：(向父级的末尾添加一个元素) parentNode.appendChild(childNode)
+    //             (向父级的某个元素前插入元素)parentNode.insertBefore(新添加的元素，已有的元素)
+    //    删除节点：parentNode.removeChild(childNode)
+    //    替换：parentNode.replaceChild(node,childNode)(要替换成什么，谁被替换)
+    //    克隆：元素.cloneNode()//克隆某个元素 
+    //    在克隆的时候，默认（false）只克隆指定的本身，不克隆该元素下的所有子元素，想克隆可以：元素.cloneNode(true)
+    var btn=document.getElementById("btn");
+    var ul=document.getElementById("ul");
+    var num=0;
+    btn.onclick=function(){
+        num++;
+        var li=document.createElement("li");//创建元素
+        li.innerHTML=num;
+        ul.appendChild(li);
+    }
+    </script>
+</body>
+</html>
