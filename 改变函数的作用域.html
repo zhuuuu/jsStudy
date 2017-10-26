@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Person(name2) {
+            this.name = name2;
+            this.sayHi = function (age, salary) {
+                alert(this.name + ",age:" + age + ",salary:" + salary);
+            }
+        }
+        var obj = new Object();
+        obj.name = "li";
+        var p1 = new Person("Grey");
+        p1.sayHi(20, 10000);
+        p1.sayHi.apply(obj, [18, 5000]);//通过apply调用sayHi方法的同时，还将sayHi方法里的this改成了obj，所以打出来的是：li
+        p1.sayHi.call(obj, 25, 8000);//通过call调用sayHi方法的同时，还将sayHi方法里的this改成了obj，同时为sayHi方法的两个形参传递了参数
+    </script>
+</body>
+
+</html>
