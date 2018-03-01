@@ -32,15 +32,15 @@
         // alert(str.substring(-3, 2));//-3当成0处理
         alert(str.slice(2, 0));//不交换位置
         alert(str.slice(-5, -3));//rg    负数从后面倒着往前数
-        var str = "www.miaov.com";
-        alert(str.split("."));//www,miaov,com
+        var str = "www.baidu.com";
+        alert(str.split("."));//www,baidu,com
         var arr = str.split(".");
-        alert(arr.length);//3   alert(arr[1])//miaov  //变成数组
-        alert(str.split(".", 2));//www,miaov
-        alert(str.split(""));//w,w,w,m,i,a,o,v,c,o,m   //每个字符串之间都会被分割
-        alert(str.split("", 5));//w,w,w,.,m
-        var str1 = "妙味课堂";
-        alert(str1.split("味"));//妙，课堂
+        alert(arr.length);//3   alert(arr[1])//naidu  //变成数组
+        alert(str.split(".", 2));//www,baidu
+        alert(str.split(""));//w,w,w,b,a,i,d,u,c,o,m   //每个字符串之间都会被分割
+        alert(str.split("", 5));//w,w,w,.,b
+        var str1 = "改变方式";
+        alert(str1.split("变"));//改，方式
         var arr1 = ["你", "我", "他"]
         alert(arr1.join());//你，我，他   //'你'+','+'我'+'，'+'他'
         alert(arr1.join(''));//你我他
