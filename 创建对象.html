@@ -11,6 +11,7 @@
 <body>
     <script>
         //  创建对象常见方式：构造函数模式+原型模式
+        //使用原型对象的好处，可以让所有对象实例共享它所包含的属性和方法
         function Person(name, age) {
             this.name = name;//this此时是在为new出来的Person对象实例，添加属性name       
             this.age = age;// this此时是在为new出来的Person对象实例，添加属性age
@@ -27,7 +28,7 @@
 
 
         // 构造函数模式
-        // 缺点：为每个对象的实例都添加了一个方法实例，太浪费
+        // 缺点：为每个对象的实例都添加了一个方法实例，即每个方法都要在每个实例上重新创建一遍
         function Person(name1, age1) {
             this.name = name1;
             this.age = age1;
