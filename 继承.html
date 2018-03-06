@@ -17,10 +17,10 @@
             };
         }
 
-        function Cat() {
+        function Dog() {
 
-            this.name = "Cat";
-            this._super = Cat.prototype;
+            this.name = "Dog";
+            this._super = Dog.prototype;
             this.showName1 = function () {
                 console.log(this.name);
             };
@@ -33,12 +33,12 @@
                 console.log(this._super.name + "=>" + this.name);
             };
         }
-        Cat.prototype = new Animal();
-        var cat = new Cat();
-        console.log(cat instanceof Animal);   //true  
-        cat.showName1();     //"Cat"  
-        cat.showName2.call(Cat.prototype);   //"Animal"  
-        cat.showName3();    //"Animal" => "Cat"
+        Dog.prototype = new Animal();
+        var dog = new Dog();
+        console.log(Dog instanceof Animal);   //true  
+        dog.showName1();     //"Dog"  
+        dog.showName2.call(Dog.prototype);   //"Animal"  
+        dog.showName3();    //"Animal" => "Dog"
     </script>
 </body>
 
