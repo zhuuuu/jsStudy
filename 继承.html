@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Animal() {
+            this.name = "Animal";
+            this.showName = function () {
+                console.log(this.name);
+            };
+        }
+
+        function Cat() {
+
+            this.name = "Cat";
+            this._super = Cat.prototype;
+            this.showName1 = function () {
+                console.log(this.name);
+            };
+
+            this.showName2 = function () {
+                console.log(this.name);
+            };
+
+            this.showName3 = function () {
+                console.log(this._super.name + "=>" + this.name);
+            };
+        }
+        Cat.prototype = new Animal();
+        var cat = new Cat();
+        console.log(cat instanceof Animal);   //true  
+        cat.showName1();     //"Cat"  
+        cat.showName2.call(Cat.prototype);   //"Animal"  
+        cat.showName3();    //"Animal" => "Cat"
+    </script>
+</body>
+
+</html>
