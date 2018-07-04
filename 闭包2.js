@@ -6,6 +6,7 @@ function f1(a){
         return  a+b
     }
 }
-var c=f1(1);
+// var c=f1();
+var c=f1(1)
 console.log(c(3));//5
 console.log(c(3));//6
