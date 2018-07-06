@@ -17,6 +17,7 @@
         // lastIndexOf()从后往前找，若第2个值为负数，默认当成0来处理 }
         // substring()用于提取字符串中介于两个指定下表之间的字符
         // toUpperCase()转换成大写    toLowerCase()转换成小写
+        // slice()从原字符串取出子字符串并返回
         //{ split()将字符串分割为字符串数组，并返回此数组   字符串~数组
         // join()把数组转换成字符串进行连接  数组~字符串 }
         var str = "vshdabffjeinvhrgcnvabdkjirgrab";
@@ -30,6 +31,8 @@
         alert(str.substring(6, 8));//ff 不包含8
         // alert(str.substring(8, 6));//可以检测两个数，大的在后，小的在前
         // alert(str.substring(-3, 2));//-3当成0处理
+        alert(str.slice(0,4))//vshd
+        alert(str.slice(4))//abffjeinvhrgcnvabdkjirgrab 省略第二个参数，字符串一直到原字符串结束
         alert(str.slice(2, 0));//不交换位置
         alert(str.slice(-5, -3));//rg    负数从后面倒着往前数
         var str = "www.baidu.com";
