@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Parent(name) {
+            this.name = name;
+        }
+        Parent.prototype.sayName = function () {
+            alert(this.name);
+        }
+        function Child(name, age) {
+            Parent.call(this, name);//继承属性
+            this.age = age;
+        }
+        //通过一个中间函数
+        function F() { };
+        F.prototype = Parent.prototype;
+        Child.prototype = new F();
+        Child.prototype.sayAge = function () {
+            alert(this.age)
+        }
+        var instance1 = new Child('li', 27);
+        instance1.sayName();
+        instance1.sayAge();
+    </script>
+</body>
+
+</html>

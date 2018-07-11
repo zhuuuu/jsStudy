@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Person(name2) {
+            this.name = name2;
+            this.sayHi = function (age, salary) {
+                alert(this.name + ",age:" + age + ",salary:" + salary);
+            }
+        }
+        var obj = new Object();
+        obj.name = "li";
+        var p1 = new Person("Grey");
+        p1.sayHi(20, 10000);
+        //apply()接收一个数组作为函数执行时的参数
+        p1.sayHi.apply(obj, [18, 5000]);//通过apply调用sayHi方法的同时，还将sayHi方法里的this改成了obj，所以打出来的是：li
+        p1.sayHi.call(obj, 25, 8000);//通过call调用sayHi方法的同时，还将sayHi方法里的this改成了obj，同时为sayHi方法的两个形参传递了参数
+
+        //apply方法的作用与call方法类似，也是改变this指向，然后再调用该函数
+        //call方法的参数，应该是一个对象， 若参数为空、null、undefined，默认传入全局对象
+        // call()
+        var x = 356;
+        var obj = { x: 567 };
+        function f() {
+            console.log(this.x);
+        }
+        f.call() //356
+        f.call(null)//356
+        f.call(window)//356
+        f.call(obj)//567
+
+
+        // apply()
+        //1)找出数组最大元素
+        var arr = [5, 7, 4, 8, 8, 2, 3, 9];
+        console.log(Math.max.apply(null, arr)) //9
+        //2)将数组的空元素边为undefined,利用Array构造函数将数组的空元素变成undefined
+        var a = [1, , 3];
+        console.log(Array.apply(this, a))//[1,undefined,3]
+        //3)转换类似数组的对象
+        console.log(Array.prototype.slice.apply({ 0: 1, length: 1 })) // [1]
+        console.log(Array.prototype.slice.apply({ 0: 1, length: 2 })) // [1, undefined]
+        // bind()
+        //用于将函数体内的this绑定到某个对象，然后返回一个新的函数
+        var counter = {
+            count: 3,
+            inc: function () {
+                this.count++;
+            }
+        };
+
+        var fn = counter.inc.bind(counter);
+        fn();
+        console.log(counter.count) //4
+
+    </script>
+</body>
+
+</html>
