@@ -30,6 +30,7 @@
         alert(arr.toString());//'1,2,3,4' 数组的toString方法返回数组的字符串形式 
       
         //1. push()在数组的末端添加一个或多个元素，返回数组的长度
+        var arr=[1,2,3,4]
         alert(arr.push(1));//长度为5
         alert(arr);//[1,2,3,4,1]
         alert(arr.push(''));//6 长度
@@ -101,7 +102,12 @@
         // { name: "王五", age: 28 },
         // { name: "张三", age: 30 }
         // ]
-
+        var arr = [5, 3, 6, 4, 2, 1, 8];
+        function sortNum(a, b) {
+            return a - b;//升序，若降序，把'a-b'改成'b-a'
+        }
+        alert(arr.sort(sortNum));//1,2,3,4,5,6,8
+        
         //9. map()将数组的所有成员依次传入参数函数，然后把每一次的执行结果组成一个新数组返回（有返回值）
         [1, 2, 3].map(function (elem, index, arr) {
             return elem * index;
@@ -143,6 +149,16 @@
         arr.every(function (elem, index, arr) {
             return elem >= 3;
         });//false
+
+
+
+
+        //es6中数组的扩展
+        // Array.from 将两类对象转为真正的数组：类似数组的对象、可遍历的对象
+        var o={'0':'c','1':'d','2':'e',length:3};
+        Array.from(o)//["c","d","e"]
+
+
 
     </script>
 </body>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>加载效果</title>
+    <style type="text/css">
+        .loading{
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            border: 2px solid #BEBEBE;
+            border-left: 2px solid #5c6b77;
+            animation: load 1s linear infinite;
+            -moz-animation:load 1s linear infinite;
+            -webkit-animation: load 1s linear infinite;
+            -o-animation:load 1s linear infinite;
+        }
+        @-webkit-keyframes load
+        {
+            from{-webkit-transform:rotate(0deg);}
+            to{-webkit-transform:rotate(360deg);}   
+        }
+        @-moz-keyframes load
+        {
+            from{-moz-transform:rotate(0deg);}
+            to{-moz-transform:rotate(360deg);}
+        }
+        @-o-keyframes load
+        {
+            from{-o-transform:rotate(0deg);}
+            to{-o-transform:rotate(360deg);}
+        }
+    </style>
+</head>
+<body>
+<div class="loading"></div>
+</body>
+</html>
