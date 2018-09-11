@@ -41,7 +41,7 @@
         alert(str.slice(-5, -3));//rg    负数从后面倒着往前数
         var str = "www.baidu.com";
         alert(str.split("."));//www,baidu,com
-        var arr = str.split(".");
+        var arr = "www.baidu.com";
         alert(arr.length);//3   alert(arr[1])//baidu  //变成数组
         alert(str.split(".", 2));//www,baidu
         alert(str.split(""));//w,w,w,b,a,i,d,u,c,o,m   //每个字符串之间都会被分割
@@ -51,6 +51,11 @@
         var arr1 = ["你", "我", "他"]
         alert(arr1.join());//你，我，他   //'你'+','+'我'+'，'+'他'
         alert(arr1.join(''));//你我他
+
+
+        
+        var str = "abcdef";
+        alert(str.split("").reverse().join(""));
     </script>
 </body>
 

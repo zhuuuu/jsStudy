@@ -20,7 +20,7 @@ Object.getPrototypeOf(p1).name  //名字
             greeting: function () {
                 console.log('Hi! I\'m ' + this.name + '.');
             }
-        };
+        };//对象
 
         var person2 = Object.create(person1);
         person2.name // 小李
