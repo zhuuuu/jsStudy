@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //对象属性的操作
+        // 1.读取属性：使用点运算符；使用方括号运算符
+        var obj = {
+            a: 1
+        };
+        obj.a //1
+        obj['a']//1  键名必须放在引号里面，否则会被当作变量处理
+        console.log(obj.a)
+        console.log(obj['a']) //1
+
+        var obj = {
+            12: 'hello'
+        };
+        // obj.12//报错  数值键名不能使用点运算符，只能使用方括号运算符
+        obj[123]//hello
+
+        // 2.属性的赋值
+        var obj={};
+        obj.a="hello";
+        obj['b']="world"
+        console.log(obj) // {a:'hello',b:'world'}
+
+        //3.查看所有属性
+        //查看一个对象的所有属性，可以使用Object.keys方法
+        var obj={
+            key1:1,
+            key2:2
+        };
+        Object.keys(obj) //["key1","key2"]
+       
+
+       // in 运算符 用于检查对象包是否包含某个属性（检查的是键名，不是键值）
+       var obj={a:1}
+       console.log('a' in obj) //true
+
+
+
+       // for...in循环
+       var obj={a:'h',b:'h',c:'z'}
+       for(var i in obj){
+           console.log(i) //a b c
+           console.log(obj[i]) //h h z
+       } 
+    </script>
+</body>
+
+</html>

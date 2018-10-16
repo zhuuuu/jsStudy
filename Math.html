@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //Math静态方法
+        //1. Math.random()返回0~1之间的伪随机数,可能等于0，但一定小于1
+        //2. Math.round()四舍五入
+        //3. Math.floor()向下取整
+        //4. Math.ceil()向上取整
+        //5. Math.max()最大值
+        //6. Math.min()最小值
+        //7. Math.sqrt()平方根
+        //8. Math.abs()绝对值
+        //9. Math.pow()指数运算  返回以第一个参数为底数、第二个参数为幂的指数值
+        
+        alert(Math.round(Math.random() * 10));//0-10之间的随机数
+        alert(Math.round(Math.random() * 5 + 5));//5-10之间的随机数
+        alert(Math.round(Math.random() * 80 + 20));//20-100之间的随机数
+
+        // x~y之间
+        // alert(Math.round(Math.random()*(y-x)+x));
+
+        // 1~x之间
+        // alert(Math.ceil(Math.random()*x));
+
+
+       // 计算圆的面积
+       var radius=2;
+       var area=Math.PI*Math.pow(radius,2)
+       alert(area)
+
+
+    </script>
+</body>
+
+</html>

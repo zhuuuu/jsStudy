@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //遍历数组常用方法
+
+        //1. 数组for循环
+       // for…in 循环出来的是key, for…of循环出来的是value
+       var arr=['first','second','third'];
+       for(var i in arr){
+           console.log(i) //0 1 2
+       };
+
+       var arr=['first','second','third'];
+       for(var i in arr){
+           console.log(arr[i]) //first second third
+       };
+       //等同于下面
+       var arr=['first','second','third'];
+       for(var item of arr){
+           console.log(item) //first second third
+       };
+
+       //数组内是对象的循环
+       var arr=[{a:1},{b:2},{c:3}];
+       for(var item of arr){
+           console.log(item) //{a:1} {b:2} {c:3}
+       }
+       var arr=[{a:1},{b:2},{c:3}];
+       for(var d in arr){
+           console.log(d) //0 1 2  键
+       }
+
+       //2.forEach方法  被传递给foreeach的函数会在数组的每一个元素上执行一次，元素作为参数传递给该函数
+       var arr=['hello','world','first','second','third'];
+       arr.forEach(function(item,index){
+           console.log(item +'/'+index)  //hello/0 world/1 .. third/4
+       })
+       //3.map
+    </script>
+</body>
+</html>

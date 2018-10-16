@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //for-in遍历json  读取
+        var json = {
+            "url": ["img/1.png", "img/2.png", "img/3.png", "img/4.png"],
+            "text": ['图片一', '图片二', '图片三', '图片四']
+        }
+        for (var attr in json) {//读取json中的每一项
+            for (var i = 0; i < json[attr].length; i++) {
+                alert(json[attr][i]);
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -21,6 +21,8 @@
         // slice()从原字符串取出子字符串并返回
         //{ split()将字符串分割为字符串数组，并返回此数组   字符串~数组
         //  join()把数组转换成字符串进行连接  数组~字符串  }
+
+        //trim() 创建一个字符串的副本，刪除前置及后缀的所有空格，然后返回結果
        
         var str = "vshdabffjeinvhrgcnvabdkjirgrab";
         var s = "ab";
@@ -56,6 +58,16 @@
         
         var str = "abcdef";
         alert(str.split("").reverse().join(""));
+
+        var str="  hello  ";
+        alert(str.trim())//hello
+
+        //将数值装换成字符串toString()方法
+        var a = 138958;
+        alert(a.toString()) //'138958'
+        //数值和字符串相加
+        var result = 5 + '5';
+        alert(result);//'55'  //第一个操作值被转换成了'5'
     </script>
 </body>
 
