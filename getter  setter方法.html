@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //js对象的属性由名字、值和一组特性（可写、可枚举、可配置等）构成，其属性值可以用一个或两个方法代替，即getter和setter
+        var o={
+            a:1,
+            get b(){ //b 存取器属性
+                return 2
+            }
+        }
+        console.log(o.b) //2
+        //当程序查询存取器的属性值是，js调用getter方法（无参数），返回值是该属性存取表达式的值
+        //当程序设置一个存取器属性值时，js调用setter方法，将赋值表达式右侧的值当作参数传入setter
+        var o={
+            get a(){
+                return this._a;
+            },
+            set a(val){
+                this._a=val;
+            }
+        }
+        o.a=1;
+        console.log(o._a) //1
+        var o1=Object.create(o);//存取器可以继承
+        console.log(o1.a)
+    </script>
+</body>
+
+</html>

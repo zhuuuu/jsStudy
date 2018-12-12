@@ -15,9 +15,27 @@ var f2 = (function f1() {
         return ++count
     }
 })()
-
+//f2()函数根本不接受参数，它使用的值是从执行环境中获取的
 console.log(f2())//1
 console.log(f2())//2
 console.log(f2())//3
 
+for (var i=0;i<5;i++){
+    (function(i){
+      setTimeout(function(){
+        console.log(i)
+      }, 1000);
+    }(i))
+}//0 1 2 3 4 闭包
 
+for (var i=0;i<5;i++){
+    setTimeout(() => {
+        console.log(i)
+      }, 1000);
+}// 5 5 5 5 5 
+
+for (let i=0;i<5;i++){
+    setTimeout(() => {
+      console.log(i)
+  }, 1000);
+} // 5 5 5 5 5 let块级作用域

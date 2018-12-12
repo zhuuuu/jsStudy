@@ -22,7 +22,7 @@ Object.getPrototypeOf(p1).name  //名字
             }
         };//对象
 
-        var person2 = Object.create(person1);
+        var person2 = Object.create(person1);// Object.create()只须传入所需的原型对象
         person2.name // 小李
         person2.greeting() // Hi! I'm 小李.
 

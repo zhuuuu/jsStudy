@@ -25,7 +25,7 @@
         }
 
         // 继承 M1
-        S.prototype = Object.create(M1.prototype);
+        S.prototype = Object.create(M1.prototype);// Object.create()只须传入所需的原型对象
         // 继承链上加入 M2
         Object.assign(S.prototype, M2.prototype);
 
