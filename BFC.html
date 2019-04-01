@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BFC</title>
+    <style>
+        .outer{
+            border: 1px solid red;
+        }
+        .inner1{
+            width:100px;
+            height:120px;
+            float:left;
+            background: lime;
+        }
+        .inner2{
+            width:200px;
+            height:200px;
+            /* float:left; */
+            background:grey;
+            /* overflow: hidden; */
+        }
+        p{
+            background: #fcc;
+            margin: 20px;
+        }
+        .wrap{
+            overflow: hidden;
+        }
+
+             .dom {
+                color: transparent;
+                border: 1px solid transparent;
+                background: transparent;
+            }
+    </style>
+</head>
+<body>
+    <!--BFC作用-->
+    <!--1.不和浮动元素重叠 :一个浮动元素跟一个非浮动元素:在非浮动元素加:overflow: hidden,形成两栏布局-->
+    <!--2.清除元素内部浮动,自动撑开父级元素 父级加:overflow:hidden-->
+    <div class="outer">
+        <div class="inner1">hhhhh</div>
+        <div class="inner2">zzzzz</div>
+    </div>
+    
+    <!--3.防止margin重叠  在外面包裹一个父级,触发BFC加 overflow:hidden, 让两个不在同一个BFC内-->
+    <div class="wrap">
+        <p>222222</p>
+    </div>
+    
+    <p>33333</p>
+
+
+
+    <div class="dom">背景，文字颜色，border透明</div>
+</body>
+</html>
