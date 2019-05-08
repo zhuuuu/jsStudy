@@ -15,4 +15,5 @@ mounted(){
     this.$set(this.people,'age',20)
 }
 
+vue 数组内对象修改属性页面不渲染问题
 ```

@@ -9,6 +9,13 @@
         .outer{
             border: 1px solid red;
         }
+        /*4 .outer::after{
+            content:'';
+            clear:both;
+            display: block;
+            height:0;
+            visibility: hidden;
+        } */
         .inner1{
             width:100px;
             height:120px;
@@ -47,6 +54,7 @@
     </div>
     
     <!--3.防止margin重叠  在外面包裹一个父级,触发BFC加 overflow:hidden, 让两个不在同一个BFC内-->
+    <!--4.使用after伪元素-->
     <div class="wrap">
         <p>222222</p>
     </div>
