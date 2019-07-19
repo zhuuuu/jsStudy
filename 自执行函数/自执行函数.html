@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+     <!-- 写法
+      1.(function(){}())
+      2.(function(){})()
+      3.function前面加运算符（!、+、-、~）
+        !function(){}()
+        +function(){}()
+	 -->
+	 <!--区别
+		(function(){})是表达式，有返回值
+		function(){}是函数声明
+
+		(function(){})得到的返回值是一个函数，遇到()时，会被执行
+	 -->
+
+</head>
+<body>
+    <script>
+        // 立即执行函数，函数在定义后会立即被执行
+      for (var i = 0; i < 3; i++) {
+        (function(i) {
+          setTimeout(function() {
+            console.log(i)
+          }, 1000)
+        })(i)
+      }// 0 1 2 
+      // https://segmentfault.com/a/1190000006813113
+      // https://www.jianshu.com/p/75553f66844a 
+    </script>
+</body>
+</html>

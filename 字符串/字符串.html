@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // length:返回该字符串的长度
+        // charAt()利用下标可返回指定位置的字符
+        // charCodeAt()利用下标获取字符串在计算机内的编码值。string.fromCharCode()返回字符串
+        //{ indexOf()返回某个字符串值在字符串中首次出现的位置，从前往后找
+        // lastIndexOf()从后往前找，若第2个值为负数，默认当成0来处理 }
+        // substring()用于提取字符串中介于两个指定下表之间的字符
+        //{ toLowerCase()将一个字符串全部转为小写
+        //  toUpperCase()将一个字符串全部转为大写  }
+        // slice()从原字符串取出子字符串并返回
+        //{ split()字符串分割 数组，并返回此数组   字符串~数组  "a,b".split(',')
+        //  join()数组转换成字符串    数组~字符串  }
+
+        //trim() 创建一个字符串的副本，刪除前置及后缀的所有空格，然后返回結果
+        
+        //decodeURIComponent() 对URL进行转码
+        
+        var str = "vshdabffjeinvhrgcnvabdkjirgrab";
+        var s = "ab";
+        var i = 0;
+        for (; str.indexOf(s, i) != -1;) {//超出显示-1
+            alert(str.indexOf(s, i));
+            i = str.indexOf(s, i) + s.length;
+        }
+        alert(str.substring(8));//jeinvhrgcnvabdkjirgrab 包含8
+        alert(str.substring(6, 8));//ff 不包含8
+        // alert(str.substring(8, 6));//可以检测两个数，大的在后，小的在前
+        // alert(str.substring(-3, 2));//-3当成0处理
+
+        // slice()从原字符串取出子字符串并返回
+        alert(str.slice(0,4))//vshd
+        alert(str.slice(4))//abffjeinvhrgcnvabdkjirgrab 省略第二个参数，字符串一直到原字符串结束
+        alert(str.slice(2, 0));//不交换位置
+        alert(str.slice(-5, -3));//rg    负数从后面倒着往前数
+        var str = "www.baidu.com";
+        alert(str.split("."));//www,baidu,com
+        var arr = "www.baidu.com";
+        alert(arr.length);//3   alert(arr[1])//baidu  //变成数组
+        alert(str.split(".", 2));//www,baidu
+        alert(str.split(""));//w,w,w,b,a,i,d,u,c,o,m   //每个字符串之间都会被分割
+        alert(str.split("", 5));//w,w,w,.,b
+        var str1 = "改变方式";
+        alert(str1.split("变"));//改，方式
+        var arr1 = ["你", "我", "他"]
+        alert(arr1.join());//你，我，他   //'你'+','+'我'+'，'+'他'
+        alert(arr1.join(''));//你我他
+
+
+        
+        var str = "abcdef";
+        alert(str.split("").reverse().join(""));
+
+        var str="  hello  ";
+        alert(str.trim())//hello
+
+        //将数值装换成字符串toString()方法
+        var a = 138958;
+        alert(a.toString()) //'138958'
+        //数值和字符串相加
+        var result = 5 + '5';
+        alert(result);//'55'  //第一个操作值被转换成了'5'
+    </script>
+</body>
+
+</html>

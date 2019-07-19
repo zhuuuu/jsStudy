@@ -8,6 +8,8 @@ async:true(异步)或false(同步)
 2)xhr.send(string)将请求发送到服务器
 string：仅用于POST请求
 
+xhr.readyState == 4(下载完成)  xhr对象所处的状态
+xhr.status == 200(服务器正常返回) 服务器响应的http状态码
 ## get
 ```
 	var xhrhttp = new XMLHttpRequest();
@@ -71,4 +73,13 @@ function tranlateObj2String(obj) {
   tranlateObj2String({a:1,b:2,c:3})
   //"a=1&b=2&c=3"
 
+```
+## ajax 过程
+```
+1.创建XMLHttpRequest对象,即创建一个异步调用对象
+2.创建一个新的HTTP请求,并制定该HTTP请求的方法、URL及验证信息
+3.设置相应HTTP请求状态变化的函数
+4.发送HTTP请求
+5.获取异步调用返回的数据
+6.使用JavaScript和DOM实现局部刷新
 ```

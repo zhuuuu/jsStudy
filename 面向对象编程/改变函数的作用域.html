@@ -23,6 +23,7 @@
         //apply()接收一个数组作为函数执行时的参数
         p1.sayHi.apply(obj, [18, 5000]);//通过apply调用sayHi方法的同时，还将sayHi方法里的this改成了obj，所以打出来的是：li
         p1.sayHi.call(obj, 25, 8000);//通过call调用sayHi方法的同时，还将sayHi方法里的this改成了obj，同时为sayHi方法的两个形参传递了参数
+        //将一个对象作为第一个参数传给call后apply,this便会绑定到这个对象. 
 
         //apply方法的作用与call方法类似，也是改变this指向，然后再调用该函数
         //call方法的参数，应该是一个对象， 若参数为空、null、undefined，默认传入全局对象
