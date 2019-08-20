@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1.判断一个单词是否是回文 
+        // 回文:把相同的词汇或句子,在下文中调换位置或颠倒过来,产生首尾回环的现象
+        function check(str){
+            return str = str.split('').reverse().join('')
+        }
+        var str = 'amamdfmkd'
+        console.log(check(str)) //dkmfdmama
+       
+        // 2.数组去重
+        function removeRepeat(arr){
+            let newArr =[]
+            for(let i=0;i<arr.length;i++){
+                if(newArr.indexOf(arr[i])==-1){
+                    newArr.push(arr[i])
+                }
+            }
+            return newArr
+        }
+         
+        // 3.排序(冒泡)
+        function arrSort(arr){
+            for(let i=0;i<arr.length-1;i++){
+                for(let j=i+1;j<arr.length;j++){
+                    if(arr[i]>arr[j]){
+                        let max = arr[i]
+                        arr[i] = arr[j]
+                        arr[j] = max
+                    }
+                }
+            }
+            return arr
+        }
+        //快速排序(选择中间的数为基准点) 对大量数据的排序来说相对会比较慢
+        function quickSort(arr){
+            if(arr.length <=1){
+                return arr
+            }
+            const pivotIndex = Math.floor(arr.length /2)
+            const pivot = arr.splice(pivotIndex,1)[0]
+            const left =[]
+            const right =[]
+            for(const i =0;i<arr.length;i++){
+                if(arr[i]<pivot){
+                    left.push(arr[i])
+                }else{
+                    right.push(arr[i])
+                }
+            }
+            return quickSort(left).concat([pivot],quickSort(right)) //递归
+            // concat操作会对数组进行一次拷贝
+        }
+
+        
+        //4.字符串中出现最多的字母
+        //思想:先遍历字符串中所有字母,统计字母以及对应显示次数,最后是进行比较获取次数最大的字母
+        function getChar(str){
+            if(typeof str !='string') return
+            const obj ={} //键为字母,值为次数
+            for(const i=0;i<str.length;i++){
+                const char= str.charAt(i)
+                obj[char] = obj[char]||0
+                obj[char] ++
+            }
+            const maxChar = null //存储字母
+            const maxNum = 0  //maxChar字母对应的次数
+            for(const key in obj){
+                if(obj[key]>maxNum){
+                    maxChar = key
+                    maxNum =obj[key]
+                }
+            }
+            return maxChar
+        }
+
+        // 5.斐波那契数列(黄金分割数列) 递归的调用
+        function fi(n){
+            var fiArr = [];
+            var i = 0;
+            while(i<n){
+                if(i<=1){
+                    fiArr.push(i)
+                }else{
+                    fiArr.push(fiArr[i-1]+fiArr[i-2])
+                }
+                i++;
+            }
+            return fiArr
+        }
+        console.log(fi(9)) //[0, 1, 1, 2, 3, 5, 8, 13, 21]
+
+        function fibb(n){
+            var fib =[1,1]
+            for(var i=2;i<n;i++){
+                fib[i]=fib[i-1]+fib[i-2]
+            }
+            return fib
+        }
+        console.log(fibb(1))
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function splitFileName(text){
+            const pattern = /\.{1}[a-z]{1,}$/  // /\.[a-z]/
+            if(pattern.exec(text)!=null){
+                return (text.slice(0,pattern.exec(text).index))
+            }else{
+                return text
+            }
+        }
+        console.log(splitFileName('aa.ppt')) // aa
+    </script>
+</body>
+</html>

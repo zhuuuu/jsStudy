@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .outer{
+            border:1px solid red;
+            background: #ccc;
+            /* overflow: hidden;
+            overflow: auto; */
+        }
+        .outer:after{
+            clear:both;
+            content: '';
+            display:block;
+            width:0;
+            height:0;
+            visibility: hidden;
+
+        }
+        .inner1{
+            width:10px;
+            height:20px;
+            float: left;
+            background: blue;
+        }
+        .inner2{
+            width:10px;
+            float:left;
+            background:pink;
+        }
+        .inner3{
+            width:10px;
+            float:left;
+            background:green;
+        }
+    </style>
+</head>
+<body>
+    <!-- 浮动元素引起的问题: -->
+    <!-- 1.父元素的高度无法被撑开,影响与父元素同级的元素 -->
+    <!-- 2.与浮动元素同级的非浮动元素会跟随其后 -->
+    <!-- 3.若非第一个元素浮动,则元素之前的浮动元素也需要浮动,否则会影响页面显示的结构-->
+
+
+    <!--若内部div不是浮动元素,可以撑开外部-->
+    <!--浮动元素脱离文档流-->
+    <div class="outer">
+        <div class="inner1">1</div>
+        <div class="inner2">2</div>
+        <div class="inner3">3</div>
+        <!-- <div style="clear:both"></div> -->
+    </div>
+
+    <!--清除浮动-->
+    <!--1.父级元素:加overflow: hidden/overflow: auto-->
+    <!--2.在子级元素末尾加空div  clear:both-->
+    <!--3.父级元素加伪类元素 :after-->
+    <script>
+    </script>
+</body>
+</html>
