@@ -40,6 +40,19 @@
             }
             return arr
         }
+
+        function arr1sort(arr1){
+            for(var i =0;i<arr1.length-1;i++){
+                for(var j=i+1;j<arr1.length;j++){
+                    if(arr1[i]>arr1[j]){
+                        var max1 = arr1[i]
+                        arr1[i] = arr1[j]
+                        arr1[j] = max1
+                    }
+                }
+            }
+            return arr1
+        }
         //快速排序(选择中间的数为基准点) 对大量数据的排序来说相对会比较慢
         function quickSort(arr){
             if(arr.length <=1){

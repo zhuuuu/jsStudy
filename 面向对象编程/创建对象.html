@@ -45,6 +45,23 @@
         p1.sayHi();
         p2.sayHi();
 
+        // 通过class关键字,可以定义类
+        // constructor方法,是构造方法,this关键字为实例对象
+        // constructor方法是类的默认方法,通过new命令生成对象实例时,自动调用该方法
+        class Person {
+            constructor(name,age){
+                this.name = name;
+                this.age = age;
+            }
+            sayHi(){
+                alert(this.name + ":" + this.age)
+            }
+        }
+        var p1 =  new Person('huan',27)
+        p1.sayHi()
+        console.log(typeof Person)  // function 类的数据类型就是函数
+        console.log(Person == Person.prototype.constructor) //true 类本身就指向构造函数
+
     </script>
 
 </body>
