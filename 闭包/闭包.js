@@ -38,4 +38,4 @@ for (let i=0;i<5;i++){
     setTimeout(() => {
       console.log(i)
   }, 1000);
-} // 5 5 5 5 5 let块级作用域
+} // 0 1 2 3 4 let块级作用域
