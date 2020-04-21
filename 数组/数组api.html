@@ -25,7 +25,8 @@
         // 13.reduce()依次处理数组的每个成员，最终累计为一个值
         // 14.1) some()只要一个成员的返回值是true，则整个some方法的返回值就是true
         //    2) every()所有成员的返回值都是true，整个every方法才返回true
-        // 15.find()返回数组中满足提供的测试函数的第一个元素的值  
+        // 15.find()返回数组中满足提供的测试函数的第一个元素的值 
+        
         var arr = [1, 2, 3, 4]
         alert(arr.valueOf());//[1,2,,3,4]
         alert(arr.toString());//'1,2,3,4' 数组的toString方法返回数组的字符串形式 
@@ -88,17 +89,17 @@
         alert(a.slice(-2, -1))//['b']
 
         //slice另一个应用，将类似数组的对象转为真正的数组
-        var ar=[{ 0: 'a', 1: 'b', length: 2 }]
+        var ar = [{ 0: 'a', 1: 'b', length: 2 }]
         Array.prototype.slice.call({ 0: 'a', 1: 'b', length: 2 }) //["a","b"];
-        [].slice.call({0:'a',length:1}) //["a"]
-        Array.prototype.slice.call(ar,0) //["a","b"];
-        
-        Array.prototype.join.call(ar,"+") //"a+b"
-        Array.prototype.map.call(ar,function(x){
+        [].slice.call({ 0: 'a', length: 1 }) //["a"]
+        Array.prototype.slice.call(ar, 0) //["a","b"];
+
+        Array.prototype.join.call(ar, "+") //"a+b"
+        Array.prototype.map.call(ar, function (x) {
             return x.toUpperCase()
         }) //["A","B"];
-        
-        
+
+
         //8. sort()对数组成员进行排序
         alert([4, 3, 2, 1].sort());//[1,2,3,4]
         alert([3, 5, 4, 2].sort(function (a, b) {
@@ -137,7 +138,7 @@
         }, out);
         alert(out);//[1,4,9]
         //forEach()会修改原来的数组，而map()会得到一个新的数组并返回
-        
+
 
         //11. filter()用于过滤数组成员，满足条件的成员组成一个新数组返回
         //    filter还可以接受第二个参数，用来绑定参数函数内部的this变量
@@ -150,9 +151,9 @@
         // 其中的this可以被filter的第二个参数obj绑定
 
         //filter数组去重
-        var arr=[2,3,4,3,5,1,4];
-        var a=arr.filter(function(element,index,arr){
-            return arr.indexOf(element)==index;
+        var arr = [2, 3, 4, 3, 5, 1, 4];
+        var a = arr.filter(function (element, index, arr) {
+            return arr.indexOf(element) == index;
         })
         console.log(a);//[2,3,4,5,1]
         //12. reduce()依次处理数组的每个成员，最终累计为一个值
@@ -160,6 +161,13 @@
             console.log(a, b);
             return a + b;
         });//15
+
+        // 扁平化数组 flatten函数 reduce
+        var arr = [[0, 1], [3, 4], [5, [6, 7]], 8]
+        function flatten(arr) {
+            return arr.reduce((pre, cur) => pre.concat(Array.isArray(cur) ? flatten(cur) : cur), [])
+        }
+        console.log(flatten(arr))
 
         //13. some()只要一个成员的返回值是true，则整个some方法的返回值就是true
         var arr = [1, 2, 3, 4, 5];
@@ -173,9 +181,10 @@
             return elem >= 3;
         });//false
 
-        //15 .
-
-
+        //15 find() 第一个满足条件的成员,返回    filter()满足条件成员,组成数组返回
+        var list = [{'text':'1','value':1},{'text':'2','value':1},{'text':'1'}]
+        list.find(i=>i.text1 == '1')  //{'text':'1','value':1}
+        list.filter(i=>i.text == '1') //[{'text':'1','value':1},{'text':'1'}]
 
 
         //es6中数组的扩展
@@ -188,20 +197,20 @@
 
 
         //Set元素不重复的集合
-        function change(arr){
+        function change(arr) {
             return [...new Set(arr)]
-        } 
-        const ar=[1,3,4,3,5,2,1]
+        }
+        const ar = [1, 3, 4, 3, 5, 2, 1]
         console.log(change(ar)) //[1,3,4,5,2]
 
         let set = new Set(['red', 'green', 'blue']);
         let arr = [...set];//['red', 'green', 'blue']
 
         //数组的map、filter方法也可用于Set
-        let set=new Set([4,3,2]);
-        set=new Set([...set].map(x=>x*2))//返回Set结构：{8,6,4}
+        let set = new Set([4, 3, 2]);
+        set = new Set([...set].map(x => x * 2))//返回Set结构：{8,6,4}
 
-    </script>   
+    </script>
 </body>
 
 </html>

@@ -11,9 +11,9 @@ Object.getPrototypeOf(p1).name  //名字
 ```
 ## Object.create()
 ```
-//构造函数作为模板，可以生成实例对象。
-//若拿不到构造函数，只能拿到一个现有的对象。
-//可以以这个现有的对象作为模板，生成新的实例对象，使用Object.create()方法
+构造函数作为模板，可以生成实例对象。
+若拿不到构造函数，只能拿到一个现有的对象。
+可以以这个现有的对象作为模板，生成新的实例对象，使用Object.create()方法
         var person1 = {
             name: '小李',
             age: 28,
@@ -26,7 +26,7 @@ Object.getPrototypeOf(p1).name  //名字
         person2.name // 小李
         person2.greeting() // Hi! I'm 小李.
 
-//Object.create()方法生成的新对象，动态继承了原型，在原型上添加或修改任何方法，会立刻反映在新对象上
+Object.create()方法生成的新对象，动态继承了原型，在原型上添加或修改任何方法，会立刻反映在新对象上
         var obj1 = { p: 2 };
         var obj2 = Object.create(obj1);
 

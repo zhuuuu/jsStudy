@@ -13,12 +13,12 @@
             overflow: auto; */
         }
         .outer:after{
-            clear:both;
+            clear:both; /* 闭合浮动 */
             content: '';
-            display:block;
+            display:block; /* 使生成的元素以块级元素显示,占满剩余空间 */
             width:0;
-            height:0;
-            visibility: hidden;
+            height:0; /* 避免生成内容破坏原有布局的高度 */
+            visibility: hidden; /* 使生成的内容不可见,并允许可能被生成内容盖住的内容可以进行点击和交互 */
 
         }
         .inner1{
