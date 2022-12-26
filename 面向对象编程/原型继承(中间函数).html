@@ -21,9 +21,18 @@
             this.age = age;
         }
         //通过一个中间函数
-        function F() { };
-        F.prototype = Parent.prototype;
+        function F() { }; 
+        F.prototype = Parent.prototype; 
         Child.prototype = new F();
+
+
+        Child.prototype = Object._create(Parent.prototype)
+        Object._create = function(obj){
+           function F(){} // 创建了一个新的构造函数
+            F.prototype = obj // 将构造函数F的原型指向了参数对象obj
+            return new F() //返回构造函数F的实例对象，从而实现了该实例继承obj的属性
+        }
+
         Child.prototype.sayAge = function () {
             alert(this.age)
         }
